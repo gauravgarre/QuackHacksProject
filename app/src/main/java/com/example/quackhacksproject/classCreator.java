@@ -20,6 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class classCreator extends AppCompatActivity {
     EditText className;
+    Button addClassBtn;
     String classText;
     TeacherClasses classSet;
 
@@ -27,13 +28,22 @@ public class classCreator extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_class_creator);
-
+        className = findViewById(R.id.newClassName);
+        addClassBtn = findViewById(R.id.addClassButton);
+        addClassBtn.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                storeInFirebase(v);
+            }
+        });
     }
 
 
     public void storeInFirebase(View view) {
-        className = findViewById(R.id.newClassName);
         classSet = new TeacherClasses(className.getText().toString());
+        if (classSet.getClassName().isEmpty()){
+            className.setError("Please enter class name");
+            className.requestFocus();
+        }
         FirebaseDatabase.getInstance().getReference("Classes").child(classSet.getClassName()).setValue(FirebaseAuth.getInstance().getCurrentUser().getUid()).addOnCompleteListener(new OnCompleteListener<Void>() {
 
         //FirebaseDatabase.getInstance().getReference("Classes").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(classSet).addOnCompleteListener(new OnCompleteListener<Void>() {

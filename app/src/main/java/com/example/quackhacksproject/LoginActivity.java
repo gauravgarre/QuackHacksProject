@@ -43,15 +43,14 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
               String pwrd = password.getText().toString();
               String uname = username.getText().toString();
-
-                if (pwrd.isEmpty()){
-                    password.setError("Please enter password");
-                    password.requestFocus();
-                    return;
-                }
                 if (uname.isEmpty()){
                     username.setError("Please enter email");
                     username.requestFocus();
+                    return;
+                }
+                if (pwrd.isEmpty()){
+                    password.setError("Please enter password");
+                    password.requestFocus();
                     return;
                 }
                 fAuth.signInWithEmailAndPassword(uname, pwrd).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
