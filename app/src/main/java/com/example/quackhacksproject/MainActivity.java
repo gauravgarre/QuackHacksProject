@@ -42,25 +42,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        list = new ArrayList<>();
         classRecyclerView = findViewById(R.id.classRecyclerView);
         classRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-/*
-        reference = FirebaseDatabase.getInstance().getReference().child("Classes");
+        reference = FirebaseDatabase.getInstance().getReference("Classes");
+        adapter = new MyAdapter(list);
+        classRecyclerView.setAdapter(adapter);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                list = new ArrayList<TeacherClasses>();
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                     TeacherClasses p = dataSnapshot1.getValue(TeacherClasses.class);
                     list.add(p);
+                    adapter.notifyDataSetChanged();
                 }
-
-                FirebaseRecyclerOptions<TeacherClasses> options =
-                        new FirebaseRecyclerOptions.Builder<TeacherClasses>()
-                                .setQuery(FirebaseDatabase.getInstance().getReference().child("Classes"), TeacherClasses.class)
-                                .build();
-                adapter = new MyAdapter(options);
-                classRecyclerView.setAdapter(adapter);
             }
 
             @Override
@@ -69,26 +64,12 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
-*/
-
-
     }
-    /*
-    @Override
-    protected void onStart() {
-        super.onStart();
-        adapter.startListening();
-    }
-    protected void onStop() {
-        super.onStop();
-        adapter.stopListening();
-    } */
     public void logout(View view){
         FirebaseAuth.getInstance().signOut();
         startActivity(new Intent(getApplicationContext(), LoginActivity.class));
         finish();
     }
-
     public void createClass(View view) {
         startActivity(new Intent(getApplicationContext(), classCreator.class));
     }
