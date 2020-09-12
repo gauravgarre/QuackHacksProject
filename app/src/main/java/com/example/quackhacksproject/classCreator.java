@@ -44,7 +44,7 @@ public class classCreator extends AppCompatActivity {
             className.setError("Please enter class name");
             className.requestFocus();
         }
-        FirebaseDatabase.getInstance().getReference("Classes").child(classSet.getClassName()).setValue(FirebaseAuth.getInstance().getCurrentUser().getUid()).addOnCompleteListener(new OnCompleteListener<Void>() {
+        FirebaseDatabase.getInstance().getReference("Classes").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(classSet).addOnCompleteListener(new OnCompleteListener<Void>() {
 
         //FirebaseDatabase.getInstance().getReference("Classes").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(classSet).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
