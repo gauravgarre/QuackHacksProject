@@ -4,11 +4,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+<<<<<<< HEAD
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.quackhacksproject.user.Student;
+=======
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.Switch;
+import android.widget.TextView;
+>>>>>>> 031d7ffe1fbeb8fd70f4abfe7a918e56ba8e65c2
 
 public class RegistrationActivity extends AppCompatActivity {
 
@@ -34,6 +41,19 @@ public class RegistrationActivity extends AppCompatActivity {
             }
         });
 
+        final Switch teacherStudentSwitch = findViewById(R.id.teacherStudentSwitch);
+        final TextView teacherStudentText = findViewById(R.id.teacherStudentText);
+        teacherStudentSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
+                if (isChecked){
+                    teacherStudentText.setText("Registering as teacher");
+                }
+                else{
+                    teacherStudentText.setText("Registering as student");
+                }
+            }
+
+        });
     }
 
 
