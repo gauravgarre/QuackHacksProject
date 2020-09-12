@@ -17,12 +17,12 @@ public class RegistrationActivity extends AppCompatActivity {
         final Switch teacherStudentSwitch = findViewById(R.id.teacherStudentSwitch);
         final TextView teacherStudentText = findViewById(R.id.teacherStudentText);
         teacherStudentSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
-            public void  onCheckedChanged(CompoundButton buttonView, boolean isChecked){
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
                 if (isChecked){
-                    teacherStudentText.setText("Logging in as student");
+                    teacherStudentText.setText("Registering as teacher");
                 }
                 else{
-                    teacherStudentText.setText("Logging in as teacher");
+                    teacherStudentText.setText("Registering as student");
                 }
             }
 
