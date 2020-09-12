@@ -1,8 +1,9 @@
-package com.example.quackhacksproject;
-
+package com.example.quackhacksproject.activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.quackhacksproject.R;
 
 public class StudentMainActivity extends AppCompatActivity {
 

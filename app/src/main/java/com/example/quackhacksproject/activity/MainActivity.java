@@ -1,4 +1,4 @@
-package com.example.quackhacksproject;
+package com.example.quackhacksproject.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +10,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.quackhacksproject.MyAdapter;
+import com.example.quackhacksproject.R;
+import com.example.quackhacksproject.TeacherClasses;
+import com.example.quackhacksproject.activity.classCreator;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
