@@ -1,4 +1,4 @@
-package com.example.quackhacksproject.activity;
+package com.example.quackhacksproject;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 

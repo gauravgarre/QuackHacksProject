@@ -1,4 +1,4 @@
-package com.example.quackhacksproject.activity;
+package com.example.quackhacksproject;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;

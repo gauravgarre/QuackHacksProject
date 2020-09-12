@@ -1,4 +1,4 @@
-package com.example.quackhacksproject.activity;
+package com.example.quackhacksproject;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.quackhacksproject.R;
 import com.example.quackhacksproject.TeacherClasses;
+import com.example.quackhacksproject.MainActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
