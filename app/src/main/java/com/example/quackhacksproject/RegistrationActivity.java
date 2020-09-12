@@ -63,22 +63,22 @@ public class RegistrationActivity extends AppCompatActivity {
                     emailText.setError("Please enter email ID");
                     emailText.requestFocus();
                 }
-                else if (password.isEmpty()){
+                if (password.isEmpty()){
                     passwordText.setError("Please enter password");
                     passwordText.requestFocus();
                 }
-                else if (firstName.isEmpty()){
+                if (firstName.isEmpty()){
                     firstNameText.setError("Please enter first name");
                     firstNameText.requestFocus();
                 }
-                else if (lastName.isEmpty()){
+                if (lastName.isEmpty()){
                     lastNameText.setError("Please enter last name");
                     lastNameText.requestFocus();
                 }
-                else if (email.isEmpty() && password.isEmpty() && firstName.isEmpty() && lastName.isEmpty()){
+                if (email.isEmpty() && password.isEmpty() && firstName.isEmpty() && lastName.isEmpty()){
                     Toast.makeText(RegistrationActivity.this,"Fields are empty!",Toast.LENGTH_SHORT).show();
                 }
-                else if (!(email.isEmpty() && password.isEmpty() && firstName.isEmpty() && lastName.isEmpty())) {
+                if (!(email.isEmpty() && password.isEmpty() && firstName.isEmpty() && lastName.isEmpty())) {
                     //Register
                 }
             }
