@@ -59,20 +59,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
-<<<<<<< HEAD
 
-       return 1;
-    }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
-       public TextView className;
-        public MyViewHolder(@NonNull View itemView){
-            super(itemView);
-            className = itemView.findViewById(R.id.classname);
-
-        }
-=======
         return teacherData.size();
->>>>>>> 0efce864b5ff41519809a8c3219b99fb014e617c
     }
+
+    
 }
