@@ -17,11 +17,11 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        btnSignUp = findViewById(R.id.signupButton);
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(LoginActivity.this,RegistrationActivity.class);
-                startActivity(i);
+                startActivity(new Intent(LoginActivity.this, RegistrationActivity.class));
             }
         });
     }
