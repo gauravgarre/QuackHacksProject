@@ -10,11 +10,13 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.quackhacksproject.user.Student;
+import com.example.quackhacksproject.user.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.example.quackhacksproject.user.Teacher;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.installations.local.PersistedInstallation;
 
 import android.widget.CompoundButton;
@@ -53,15 +55,16 @@ public class RegistrationActivity extends AppCompatActivity {
         teacherStudentSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
                 if (isChecked){
-                    teacherStudentText.setText("Registering as teacher");
+                    teacherStudentText.setText("teacher");
                 }
                 else{
-                    teacherStudentText.setText("Registering as student");
+                    teacherStudentText.setText("student");
 
                 }
             }
 
         });
+        final String teacherToggle = teacherStudentText.getText().toString();
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -91,8 +94,21 @@ public class RegistrationActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
+
+                                User user  = new User(email, lastName, firstName, teacherToggle);
+                                FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if(task.isSuccessful()){
+                                            Toast.makeText(RegistrationActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+                                        }else{
+                                            Toast.makeText(RegistrationActivity.this, "Registration Failure", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                });
                                 Toast.makeText(RegistrationActivity.this, "User Created", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
+
                             } else {
                                 Toast.makeText(RegistrationActivity.this, "Error!" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             }
