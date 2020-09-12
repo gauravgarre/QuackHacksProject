@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         classRecyclerView = findViewById(R.id.classRecyclerView);
         classRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-
+/*
         reference = FirebaseDatabase.getInstance().getReference().child("Classes");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -66,7 +66,9 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+*/
     }
+    /*
     @Override
     protected void onStart() {
         super.onStart();
@@ -75,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         adapter.stopListening();
-    }
+    } */
     public void logout(View view){
         FirebaseAuth.getInstance().signOut();
         startActivity(new Intent(getApplicationContext(), LoginActivity.class));
