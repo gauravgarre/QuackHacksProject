@@ -7,12 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.quackhacksproject.R;
-import com.example.quackhacksproject.TeacherClasses;
-import com.example.quackhacksproject.MainActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -39,7 +35,7 @@ public class classCreator extends AppCompatActivity {
 
 
     public void storeInFirebase(View view) {
-        classSet = new TeacherClasses(className.getText().toString());
+        classSet = new TeacherClasses(className.getText().toString(),0);
         if (classSet.getClassName().isEmpty()){
             className.setError("Please enter class name");
             className.requestFocus();
