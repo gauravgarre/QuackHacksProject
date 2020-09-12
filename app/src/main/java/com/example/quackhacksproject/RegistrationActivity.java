@@ -36,45 +36,30 @@ public class RegistrationActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
                 if (isChecked){
                     teacherStudentText.setText("Registering as teacher");
-                    btnRegister = findViewById(R.id.registerBtn);
-                    btnRegister.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            emailText = findViewById(R.id.emailText);
-                            passwordText = findViewById(R.id.passwordText);
-                            firstNameText = findViewById(R.id.firstName);
-                            lastNameText = findViewById(R.id.lastName);
-
-                            email = emailText.getText().toString();
-                            password = passwordText.getText().toString();
-                            firstName = firstNameText.getText().toString();
-                            lastName = lastNameText.getText().toString();
-                        }
-                    });
                 }
                 else{
                     teacherStudentText.setText("Registering as student");
-                    btnRegister = findViewById(R.id.registerBtn);
-                    btnRegister.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            emailText = findViewById(R.id.emailText);
-                            passwordText = findViewById(R.id.passwordText);
-                            firstNameText = findViewById(R.id.firstName);
-                            lastNameText = findViewById(R.id.lastName);
 
-                            email = emailText.getText().toString();
-                            password = passwordText.getText().toString();
-                            firstName = firstNameText.getText().toString();
-                            lastName = lastNameText.getText().toString();
-                        }
-                    });
                 }
             }
 
         });
 
+        btnRegister = findViewById(R.id.registerBtn);
+        btnRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                emailText = findViewById(R.id.emailText);
+                passwordText = findViewById(R.id.passwordText);
+                firstNameText = findViewById(R.id.firstName);
+                lastNameText = findViewById(R.id.lastName);
 
+                email = emailText.getText().toString();
+                password = passwordText.getText().toString();
+                firstName = firstNameText.getText().toString();
+                lastName = lastNameText.getText().toString();
+            }
+        });
     }
 
 
