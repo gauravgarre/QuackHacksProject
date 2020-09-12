@@ -36,7 +36,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             super(v);
             context = mContext;
             textView = v.findViewById(R.id.classname);
-            button = v.findViewById(R.id.addClassButton);
+            button = v.findViewById(R.id.classBtn);
             button.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View view){
@@ -51,7 +51,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     // Provide a suitable constructor (depends on the kind of dataset)
     public MyAdapter(List<TeacherClasses> teacherData,Context mContext) {
         this.teacherData = teacherData;
-        this.mContext = mContext;
     }
 
     // Create new views (invoked by the layout manager)
@@ -60,7 +59,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                                                      int viewType) {
         // create a new view
         MyViewHolder vh = new MyViewHolder(LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.class_item, parent, false));
+                .inflate(R.layout.class_item, parent, false),parent.getContext());
         return vh;
     }
 
