@@ -9,10 +9,13 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.quackhacksproject.user.Student;
+import com.google.firebase.auth.FirebaseAuth;
+
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class RegistrationActivity extends AppCompatActivity {
@@ -26,16 +29,28 @@ public class RegistrationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
-
+        emailText = findViewById(R.id.emailText);
+        passwordText = findViewById(R.id.passwordText);
         btnRegister = findViewById(R.id.registerBtn);
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                emailText = findViewById(R.id.emailText);
-                passwordText = findViewById(R.id.passwordText);
                 email = emailText.getText().toString();
                 password = passwordText.getText().toString();
-                student = new Student(email, password);
+                if (email.isEmpty()){
+                    emailText.setError("Please enter email ID");
+                    emailText.requestFocus();
+                }
+                else if (password.isEmpty()){
+                    passwordText.setError("Please enter password");
+                    passwordText.requestFocus();
+                }
+                else if (email.isEmpty() && password.isEmpty()){
+                    Toast.makeText(RegistrationActivity.this,"Fields are empty!",Toast.LENGTH_SHORT).show();
+                }
+                else if (!(email.isEmpty() && password.isEmpty())) {
+                    student = new Student(email, password);
+                }
             }
         });
 
