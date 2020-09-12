@@ -32,7 +32,6 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="9dp"
         android:layout_marginRight="15dp"
-
         android:onClick="createClass"
         app:layout_constraintBottom_toTopOf="@+id/classRecyclerView"
         app:layout_constraintTop_toTopOf="parent"

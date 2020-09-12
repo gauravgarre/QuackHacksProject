@@ -56,7 +56,7 @@ public class RegistrationActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
                 if (isChecked){
                     teacherStudentText.setText("teacher");
-
+                    System.out.println(teacherStudentText.getText().toString());
                 }
                 else{
                     teacherStudentText.setText("student");
