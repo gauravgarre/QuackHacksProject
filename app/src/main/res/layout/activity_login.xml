@@ -55,4 +55,15 @@
         tools:layout_editor_absoluteX="157dp"
         tools:layout_editor_absoluteY="464dp" />
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom = "100dp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextUsername"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/hybrid___c_logotext" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
