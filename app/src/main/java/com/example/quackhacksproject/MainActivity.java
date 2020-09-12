@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Switch;
 import android.widget.Toast;
@@ -18,8 +19,10 @@ import com.example.quackhacksproject.MyAdapter;
 import com.example.quackhacksproject.R;
 import com.example.quackhacksproject.TeacherClasses;
 import com.example.quackhacksproject.classCreator;
+import com.example.quackhacksproject.user.User;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 
 import com.google.firebase.database.DataSnapshot;
@@ -37,16 +40,11 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<TeacherClasses> list;
     DatabaseReference reference;
     Button class1, class2, class3;
-    FirebaseAuth fAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-
-
         list = new ArrayList<>();
         classRecyclerView = findViewById(R.id.classRecyclerView);
         classRecyclerView.setLayoutManager(new LinearLayoutManager(this));

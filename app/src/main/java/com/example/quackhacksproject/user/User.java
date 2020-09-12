@@ -11,4 +11,8 @@ public class User {
         this.position = position;
 
     }
+
+    public String getPosition() {
+        return position;
+    }
 }
