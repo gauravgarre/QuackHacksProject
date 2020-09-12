@@ -1,5 +1,4 @@
-package com.example.quackhacksproject;
-
+package com.example.quackhacksproject.activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.quackhacksproject.R;
 import com.example.quackhacksproject.user.Student;
 import com.example.quackhacksproject.user.User;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -56,6 +56,7 @@ public class RegistrationActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
                 if (isChecked){
                     teacherStudentText.setText("teacher");
+
                 }
                 else{
                     teacherStudentText.setText("student");

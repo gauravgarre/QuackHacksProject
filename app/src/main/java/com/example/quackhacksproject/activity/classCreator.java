@@ -1,5 +1,4 @@
-package com.example.quackhacksproject;
-
+package com.example.quackhacksproject.activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +10,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.quackhacksproject.R;
+import com.example.quackhacksproject.TeacherClasses;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -31,8 +32,7 @@ public class classCreator extends AppCompatActivity {
 
     public void storeInFirebase(View view) {
         className = findViewById(R.id.newClassName);
-        classText = className.getText().toString();
-        classSet = new TeacherClasses(classText);
+        classSet = new TeacherClasses(className.getText().toString());
         FirebaseDatabase.getInstance().getReference("Classes").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(classSet).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
