@@ -26,9 +26,8 @@ public class RegistrationActivity extends AppCompatActivity {
     EditText emailText, passwordText, firstNameText, lastNameText;
     String email, password, firstName, lastName;
     Button btnRegister;
-    Student student;
-    Teacher teacher;
     FirebaseAuth fAuth;
+    String position;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +44,7 @@ public class RegistrationActivity extends AppCompatActivity {
             finish();
         }
 
-        final Switch teacherStudentSwitch = findViewById(R.id.teacherStudentSwitch);
+        final Switch teacherStudentSwitch = (Switch) findViewById(R.id.teacherStudentSwitch);
         final TextView teacherStudentText = findViewById(R.id.teacherStudentText);
         teacherStudentSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
@@ -55,12 +54,14 @@ public class RegistrationActivity extends AppCompatActivity {
                 }
                 else{
                     teacherStudentText.setText("student");
+                    System.out.println(teacherStudentText.getText().toString());
 
                 }
+                position = teacherStudentText.getText().toString();
             }
 
         });
-        final String position = teacherStudentText.getText().toString();
+        System.out.println(position);
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
