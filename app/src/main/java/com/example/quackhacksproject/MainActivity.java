@@ -10,7 +10,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Switch;
 import android.widget.Toast;
+import android.widget.Button;
 
 import com.example.quackhacksproject.MyAdapter;
 import com.example.quackhacksproject.R;
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     MyAdapter adapter;
     ArrayList<TeacherClasses> list;
     DatabaseReference reference;
+    Button class1, class2, class3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,15 +64,12 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
-
     }
-
     public void logout(View view){
         FirebaseAuth.getInstance().signOut();
         startActivity(new Intent(getApplicationContext(), LoginActivity.class));
         finish();
     }
-
     public void createClass(View view) {
         startActivity(new Intent(getApplicationContext(), classCreator.class));
     }
