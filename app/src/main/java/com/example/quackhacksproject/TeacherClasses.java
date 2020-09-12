@@ -2,10 +2,12 @@ package com.example.quackhacksproject;
 
 public class TeacherClasses {
     public String className;
+    public int classCount;
     public TeacherClasses(){};
 
-    public TeacherClasses(String className){
+    public TeacherClasses(String className,int classCount){
         this.className = className;
+        this.classCount = classCount;
     }
 
     public String getClassName() {
