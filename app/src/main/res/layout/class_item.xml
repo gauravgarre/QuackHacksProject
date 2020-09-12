@@ -3,17 +3,30 @@
 
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/classname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
         android:layout_marginLeft="10dp"
         android:text="classname"
         android:textColor="#FFFFFF"
+        android:layout_alignParentStart="true"
         android:textColorLink="#FFFFFF"
-        android:textSize="40sp"
-        android:visibility="visible"></TextView>
+        android:textSize="30sp"
+        android:visibility="visible"
+        ></TextView>
+
+    <Button
+        android:id="@+id/classBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:text="See Class"
+        android:onClick = "goToClass"
+        android:textSize = "10sp"
+        />
+
+
 </RelativeLayout>

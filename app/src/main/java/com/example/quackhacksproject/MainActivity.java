@@ -73,4 +73,7 @@ public class MainActivity extends AppCompatActivity {
     public void createClass(View view) {
         startActivity(new Intent(getApplicationContext(), classCreator.class));
     }
+    public void goToClass(View view) {
+        startActivity(new Intent(getApplicationContext(), ClassActivity.class));
+    }
 }

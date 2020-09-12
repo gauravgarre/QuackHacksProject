@@ -1,11 +1,15 @@
 package com.example.quackhacksproject;
 
 import android.content.Context;
+import android.content.Intent;
 import android.text.Layout;
 import android.view.ContextMenu;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -26,9 +30,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
         public TextView textView;
+        public Button button;
+
         public MyViewHolder(View v) {
             super(v);
             textView = v.findViewById(R.id.classname);
+            button = v.findViewById(R.id.addClassButton);
+
         }
     }
 
