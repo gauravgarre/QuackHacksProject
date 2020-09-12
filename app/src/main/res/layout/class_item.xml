@@ -3,15 +3,17 @@
 
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:android_padding="10dp"
     android:layout_height="match_parent">
-    
+
     <TextView
+        android:id="@+id/classname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="classname"
-        android:id = "@+id/classname"
-        android:layout_marginLeft="10dp"
         android:layout_centerVertical="true"
-        android:textSize="18sp"></TextView>
+        android:layout_marginLeft="10dp"
+        android:text="classname"
+        android:textColor="#FFFFFF"
+        android:textColorLink="#FFFFFF"
+        android:textSize="40sp"
+        android:visibility="visible"></TextView>
 </RelativeLayout>

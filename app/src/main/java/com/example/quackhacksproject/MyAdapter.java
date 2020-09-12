@@ -11,34 +11,42 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+
 import java.util.List;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
-    Context context;
-    List<TeacherClasses> classes;
-   public MyAdapter(Context ct, List<TeacherClasses> classes){
-       this.classes = classes;
-       context = ct;
+public class MyAdapter extends FirebaseRecyclerAdapter<TeacherClasses,MyAdapter.MyViewHolder> {
 
-   }
 
+    public MyAdapter(@NonNull FirebaseRecyclerOptions<TeacherClasses> options){
+        super(options);
+    }
     @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-       
-        return null;
 
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.class_item,parent,false);
+        return new MyViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+
+
+    }
+
+    @Override
+    protected void onBindViewHolder(@NonNull MyViewHolder holder, int position, @NonNull TeacherClasses model) {
+        holder.className.setText(model.getClassName());
 
     }
 
     @Override
     public int getItemCount() {
 
-       return classes.size();
+       return 0;
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
