@@ -1,9 +1,9 @@
 package com.example.quackhacksproject.user;
 
-public class Student {
+public class Teacher {
     public String  email, username, firstName, lastName;
 
-    public Student( String email, String username, String firstName, String lastName) {
+    public Teacher( String email, String username, String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
