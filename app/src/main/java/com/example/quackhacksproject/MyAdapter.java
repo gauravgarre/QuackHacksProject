@@ -23,7 +23,6 @@ import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     private List<TeacherClasses> teacherData;
-
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder
@@ -31,18 +30,28 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         // each data item is just a string in this case
         public TextView textView;
         public Button button;
+        private Context context;
 
-        public MyViewHolder(View v) {
+        public MyViewHolder(View v,Context mContext) {
             super(v);
+            context = mContext;
             textView = v.findViewById(R.id.classname);
             button = v.findViewById(R.id.addClassButton);
-
+            button.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View view){
+                    Intent i = new Intent(context.getApplicationContext(),ClassActivity.class);
+                    i.putExtra("className",textView.getText().toString());
+                    context.startActivity(new Intent(context.getApplicationContext(), ClassActivity.class));
+                }
+            });
         }
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public MyAdapter(List<TeacherClasses> teacherData) {
+    public MyAdapter(List<TeacherClasses> teacherData,Context mContext) {
         this.teacherData = teacherData;
+        this.mContext = mContext;
     }
 
     // Create new views (invoked by the layout manager)

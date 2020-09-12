@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         classRecyclerView = findViewById(R.id.classRecyclerView);
         classRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         reference = FirebaseDatabase.getInstance().getReference("Classes");
-        adapter = new MyAdapter(list);
+        adapter = new MyAdapter(list,getApplicationContext());
         classRecyclerView.setAdapter(adapter);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -73,7 +73,9 @@ public class MainActivity extends AppCompatActivity {
     public void createClass(View view) {
         startActivity(new Intent(getApplicationContext(), classCreator.class));
     }
-    public void goToClass(View view) {
+    public void goToClass(View view,String className) {
+        Intent i = new Intent(getApplicationContext(),ClassActivity.class);
+        i.putExtra("className",className);
         startActivity(new Intent(getApplicationContext(), ClassActivity.class));
     }
 }
