@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         classRecyclerView = findViewById(R.id.classRecyclerView);
         classRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        reference = FirebaseDatabase.getInstance().getReference().child("Profiles");
+        reference = FirebaseDatabase.getInstance().getReference().child("Classes");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
