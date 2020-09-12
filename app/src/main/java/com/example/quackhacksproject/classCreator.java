@@ -34,7 +34,9 @@ public class classCreator extends AppCompatActivity {
     public void storeInFirebase(View view) {
         className = findViewById(R.id.newClassName);
         classSet = new TeacherClasses(className.getText().toString());
-        FirebaseDatabase.getInstance().getReference("Classes").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(classSet).addOnCompleteListener(new OnCompleteListener<Void>() {
+        FirebaseDatabase.getInstance().getReference("Classes").child(classSet.getClassName()).setValue(FirebaseAuth.getInstance().getCurrentUser().getUid()).addOnCompleteListener(new OnCompleteListener<Void>() {
+
+        //FirebaseDatabase.getInstance().getReference("Classes").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(classSet).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
