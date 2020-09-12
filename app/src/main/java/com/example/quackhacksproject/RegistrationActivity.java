@@ -76,25 +76,27 @@ public class RegistrationActivity extends AppCompatActivity {
                 if (password.isEmpty()){
                     emailText.setError("Please enter email ID");
                     emailText.requestFocus();
+                    return;
                 }
                 if (email.isEmpty()){
                     passwordText.setError("Please enter password");
                     passwordText.requestFocus();
+                    return;
                 }
                 if (lastName.isEmpty()){
                     firstNameText.setError("Please enter first name");
                     firstNameText.requestFocus();
+                    return;
                 }
-                if (firstName.isEmpty()){
+                if (firstName.isEmpty()) {
                     lastNameText.setError("Please enter last name");
                     lastNameText.requestFocus();
+                    return;
                 }
-                if (!(email.isEmpty() || password.isEmpty() || firstName.isEmpty() || lastName.isEmpty())) {
                     fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-
                                 User user  = new User(email, lastName, firstName, teacherToggle);
                                 FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
@@ -114,7 +116,7 @@ public class RegistrationActivity extends AppCompatActivity {
                             }
                         }
                     });
-                }
+
                 //Registering the User in FireBase
             }
         });
