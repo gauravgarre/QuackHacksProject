@@ -37,11 +37,16 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<TeacherClasses> list;
     DatabaseReference reference;
     Button class1, class2, class3;
+    FirebaseAuth fAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
+
         list = new ArrayList<>();
         classRecyclerView = findViewById(R.id.classRecyclerView);
         classRecyclerView.setLayoutManager(new LinearLayoutManager(this));
