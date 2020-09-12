@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "712485941433-snnisbkhsjf60fmq53srg2q7d9hu7eok.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.quackhacksproject",
+            "certificate_hash": "71bd946b3bbac5cd30f759a0588c288441ba16a1"
+          }
+        },
+        {
           "client_id": "712485941433-pdj89t6husnr6eehbah85c1fs5tnhqde.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

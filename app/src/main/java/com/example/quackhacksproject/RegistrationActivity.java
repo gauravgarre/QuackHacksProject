@@ -1,5 +1,6 @@
 package com.example.quackhacksproject;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,8 +10,12 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.quackhacksproject.user.Student;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.example.quackhacksproject.user.Teacher;
+import com.google.firebase.installations.local.PersistedInstallation;
 
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -26,7 +31,7 @@ public class RegistrationActivity extends AppCompatActivity {
     Button btnRegister;
     Student student;
     Teacher teacher;
-
+    FirebaseAuth fAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +41,12 @@ public class RegistrationActivity extends AppCompatActivity {
         firstNameText = findViewById(R.id.firstName);
         lastNameText = findViewById(R.id.lastName);
         btnRegister = findViewById(R.id.registerBtn);
+
+        fAuth = FirebaseAuth.getInstance();
+        if(fAuth.getCurrentUser() != null){
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            finish();
+        }
 
         final Switch teacherStudentSwitch = findViewById(R.id.teacherStudentSwitch);
         final TextView teacherStudentText = findViewById(R.id.teacherStudentText);
@@ -62,25 +73,35 @@ public class RegistrationActivity extends AppCompatActivity {
                 if (email.isEmpty()){
                     emailText.setError("Please enter email ID");
                     emailText.requestFocus();
+                    return;
                 }
                 else if (password.isEmpty()){
                     passwordText.setError("Please enter password");
                     passwordText.requestFocus();
+                    return;
                 }
                 else if (firstName.isEmpty()){
                     firstNameText.setError("Please enter first name");
                     firstNameText.requestFocus();
+                    return;
                 }
                 else if (lastName.isEmpty()){
                     lastNameText.setError("Please enter last name");
                     lastNameText.requestFocus();
+                    return;
                 }
-                else if (email.isEmpty() && password.isEmpty() && firstName.isEmpty() && lastName.isEmpty()){
-                    Toast.makeText(RegistrationActivity.this,"Fields are empty!",Toast.LENGTH_SHORT).show();
-                }
-                else if (!(email.isEmpty() && password.isEmpty() && firstName.isEmpty() && lastName.isEmpty())) {
-                    //Register
-                }
+                fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
+                            Toast.makeText(RegistrationActivity.this, "User Created", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        } else{
+                            Toast.makeText(RegistrationActivity.this, "Error!" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+                //Registering the User in FireBase
             }
         });
     }
