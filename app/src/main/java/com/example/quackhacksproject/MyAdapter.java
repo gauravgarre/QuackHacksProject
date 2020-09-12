@@ -46,7 +46,7 @@ public class MyAdapter extends FirebaseRecyclerAdapter<TeacherClasses,MyAdapter.
     @Override
     public int getItemCount() {
 
-       return 0;
+       return 1;
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
