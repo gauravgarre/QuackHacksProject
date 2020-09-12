@@ -74,24 +74,24 @@ public class RegistrationActivity extends AppCompatActivity {
                 password = passwordText.getText().toString();
                 firstName = firstNameText.getText().toString();
                 lastName = lastNameText.getText().toString();
-                if (email.isEmpty()) {
-                    passwordText.setError("Please enter password");
-                    passwordText.requestFocus();
-                    return;
-                }
-                if (password.isEmpty()){
-                    emailText.setError("Please enter email ID");
-                    emailText.requestFocus();
-                    return;
-                }
                 if (firstName.isEmpty()) {
+                    firstNameText.setError("Please enter first name");
+                    firstNameText.requestFocus();
+                    return;
+                }
+                if (lastName.isEmpty()){
                     lastNameText.setError("Please enter last name");
                     lastNameText.requestFocus();
                     return;
                 }
-                if (lastName.isEmpty()){
-                    firstNameText.setError("Please enter first name");
-                    firstNameText.requestFocus();
+                if (email.isEmpty()) {
+                    emailText.setError("Please enter email ID");
+                    emailText.requestFocus();
+                    return;
+                }
+                if (password.isEmpty()){
+                    passwordText.setError("Please enter password");
+                    passwordText.requestFocus();
                     return;
                 }
                     fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
