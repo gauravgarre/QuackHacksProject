@@ -73,34 +73,32 @@ public class RegistrationActivity extends AppCompatActivity {
                 if (email.isEmpty()){
                     emailText.setError("Please enter email ID");
                     emailText.requestFocus();
-                    return;
                 }
-                else if (password.isEmpty()){
+                if (password.isEmpty()){
                     passwordText.setError("Please enter password");
                     passwordText.requestFocus();
-                    return;
                 }
-                else if (firstName.isEmpty()){
+                if (firstName.isEmpty()){
                     firstNameText.setError("Please enter first name");
                     firstNameText.requestFocus();
-                    return;
                 }
-                else if (lastName.isEmpty()){
+                if (lastName.isEmpty()){
                     lastNameText.setError("Please enter last name");
                     lastNameText.requestFocus();
-                    return;
                 }
-                fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            Toast.makeText(RegistrationActivity.this, "User Created", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                        } else{
-                            Toast.makeText(RegistrationActivity.this, "Error!" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                if (!(email.isEmpty() && password.isEmpty() && firstName.isEmpty() && lastName.isEmpty())) {
+                    fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(RegistrationActivity.this, "User Created", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                            } else {
+                                Toast.makeText(RegistrationActivity.this, "Error!" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            }
                         }
-                    }
-                });
+                    });
+                }
                 //Registering the User in FireBase
             }
         });
