@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "712485941433",
+    "firebase_url": "https://team-9-quackhacks.firebaseio.com",
+    "project_id": "team-9-quackhacks",
+    "storage_bucket": "team-9-quackhacks.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:712485941433:android:f715f90276fe285d22ab68",
+        "android_client_info": {
+          "package_name": "com.example.quackhacksproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "712485941433-r0c24e0v91b4gd6oum9j8jb8induojq7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9X4xfs4T_OBS2ccSvxTzrPArHCFUtr8g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "712485941433-r0c24e0v91b4gd6oum9j8jb8induojq7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
