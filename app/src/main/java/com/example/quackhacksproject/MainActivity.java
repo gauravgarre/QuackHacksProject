@@ -21,11 +21,5 @@ public class MainActivity extends AppCompatActivity {
         MyAdapter myAdapter = new MyAdapter(this, s1);
 
     }
-    public void rayTest() {
 
-    }
-
-    public void tester() {
-
-    }
 }
