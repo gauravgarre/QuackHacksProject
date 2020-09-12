@@ -8,19 +8,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.quackhacksproject.R;
-import com.example.quackhacksproject.user.Student;
 import com.example.quackhacksproject.user.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.example.quackhacksproject.user.Teacher;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.installations.local.PersistedInstallation;
 
 import android.widget.CompoundButton;
-import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
