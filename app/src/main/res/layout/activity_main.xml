@@ -33,9 +33,12 @@
         android:layout_marginBottom="9dp"
         android:layout_marginRight="15dp"
         android:onClick="createClass"
+        android:text="Add Class"
         app:layout_constraintBottom_toTopOf="@+id/classRecyclerView"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
