@@ -19,12 +19,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.653" />
 
-    <TextView
+    <EditText
         android:id="@+id/newClassName"
         android:layout_width="106dp"
-        android:layout_height="24dp"
+        android:layout_height="40dp"
         android:clickable="false"
-        android:text="Input Class Name"
+        android:hint="Name"
+        android:ems="10"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

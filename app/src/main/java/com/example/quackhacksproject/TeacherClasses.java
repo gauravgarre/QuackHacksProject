@@ -4,8 +4,8 @@ public class TeacherClasses {
     public String className;
     public TeacherClasses(){};
 
-    public TeacherClasses(String clssName){
-        className = clssName;
+    public TeacherClasses(String className){
+        this.className = className;
     }
 
     public String getClassName() {

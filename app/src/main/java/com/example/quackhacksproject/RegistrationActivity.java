@@ -64,7 +64,7 @@ public class RegistrationActivity extends AppCompatActivity {
             }
 
         });
-        final String teacherToggle = teacherStudentText.getText().toString();
+        final String position = teacherStudentText.getText().toString();
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -97,7 +97,7 @@ public class RegistrationActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                User user  = new User(email, lastName, firstName, teacherToggle);
+                                User user  = new User(email, lastName, firstName, position);
                                 FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
