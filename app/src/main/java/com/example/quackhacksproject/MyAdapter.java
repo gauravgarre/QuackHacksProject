@@ -1,26 +1,33 @@
 package com.example.quackhacksproject;
 
 import android.content.Context;
+import android.text.Layout;
 import android.view.ContextMenu;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+import java.util.List;
 
-    String data1[];
+public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     Context context;
-   public MyAdapter(Context ct, String s1[]){
+    List<TeacherClasses> classes;
+   public MyAdapter(Context ct, List<TeacherClasses> classes){
+       this.classes = classes;
        context = ct;
-       data1 = s1;
+
    }
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+       
         return null;
+
     }
 
     @Override
@@ -30,12 +37,17 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     @Override
     public int getItemCount() {
-        return 0;
+
+       return classes.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
+       public TextView className;
         public MyViewHolder(@NonNull View itemView){
             super(itemView);
+            className = itemView.findViewById(R.id.classname);
+
         }
     }
+
 }
