@@ -1,8 +1,9 @@
 package com.example.quackhacksproject;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.quackhacksproject.R;
 
 public class TeacherMainActivity extends AppCompatActivity {
 

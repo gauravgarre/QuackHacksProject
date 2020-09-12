@@ -1,5 +1,4 @@
 package com.example.quackhacksproject;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.quackhacksproject.R;
 import com.example.quackhacksproject.user.Student;
 import com.example.quackhacksproject.user.User;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -56,6 +56,7 @@ public class RegistrationActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
                 if (isChecked){
                     teacherStudentText.setText("teacher");
+
                 }
                 else{
                     teacherStudentText.setText("student");
@@ -64,7 +65,7 @@ public class RegistrationActivity extends AppCompatActivity {
             }
 
         });
-        final String teacherToggle = teacherStudentText.getText().toString();
+        final String position = teacherStudentText.getText().toString();
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -76,26 +77,28 @@ public class RegistrationActivity extends AppCompatActivity {
                 if (password.isEmpty()){
                     emailText.setError("Please enter email ID");
                     emailText.requestFocus();
+                    return;
                 }
                 if (email.isEmpty()){
                     passwordText.setError("Please enter password");
                     passwordText.requestFocus();
+                    return;
                 }
                 if (lastName.isEmpty()){
                     firstNameText.setError("Please enter first name");
                     firstNameText.requestFocus();
+                    return;
                 }
-                if (firstName.isEmpty()){
+                if (firstName.isEmpty()) {
                     lastNameText.setError("Please enter last name");
                     lastNameText.requestFocus();
+                    return;
                 }
-                if (!(email.isEmpty() || password.isEmpty() || firstName.isEmpty() || lastName.isEmpty())) {
                     fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-
-                                User user  = new User(email, lastName, firstName, teacherToggle);
+                                User user  = new User(email, lastName, firstName, position);
                                 FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
@@ -114,7 +117,7 @@ public class RegistrationActivity extends AppCompatActivity {
                             }
                         }
                     });
-                }
+
                 //Registering the User in FireBase
             }
         });
